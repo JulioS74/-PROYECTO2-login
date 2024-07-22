@@ -10,9 +10,8 @@ class Ingredientes(db.Model):
     es_vegetariano = db.Column(db.Boolean, nullable=False)
 
     def es_sano(self):
-        return self.calorias < 100 or self.es_vegetariano
-
-    @staticmethod
-    def calcular_calorias(ingredientes):
-        total_calorias = sum(ingrediente.calorias for ingrediente in ingredientes) * 0.95
-        return round(total_calorias, 2)
+        return self.calorias < 100 or self.es_vegetariano    
+    
+    def abstecer(self, cantidad):
+        self.inventario += cantidad
+    
